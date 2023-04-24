@@ -58,9 +58,16 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
           <div className="pb-5">
             <h2 className="text-xl font-bold">Todays Overview</h2>
             <p className="text-sm text-gray-400">
-              Last Updated at:
-              {new Date(results.current_weather.time).toLocaleString()} (
-              {results.timezone})
+              Last Updated at:{" "}
+              {new Date(results.current_weather.time).toLocaleString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: false,
+              })}{" "}
+              ({results.timezone})
             </p>
           </div>
 
